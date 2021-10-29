@@ -6,11 +6,13 @@ RSpec.describe 'the merchants index', type: :feature do
       visit('/merchants')
     end
 
-    it 'has a list of merchants' do
-
+    it 'has a list of merchants', :vcr do
+      expect(page).to have_link("Schroeder-Jerde")
     end
 
     xit 'links to each merchant by their name' do
+      click_link("Schroeder-Jerde")
+      expect(current_path).to eq('/merchants/1')
     end
   end
 end
