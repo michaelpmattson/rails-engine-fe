@@ -12,6 +12,7 @@ RSpec.describe 'the merchants index', type: :feature do
 
     it 'links to each merchant by their name', :vcr do
       click_link("Schroeder-Jerde")
+      # save_and_open_page
       expect(current_path).to eq('/merchants/1')
     end
   end
